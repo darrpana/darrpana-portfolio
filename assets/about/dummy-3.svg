@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 375" width="300" height="375">
+  <title>Placeholder image 3 (replace with a real one)</title>
+  <rect width="300" height="375" fill="#72cfb8"/>
+  <path d="M90 120h110v70a55 55 0 0 1-55 55 55 55 0 0 1-55-55z" fill="#151515"/><path d="M200 140h14a24 24 0 0 1 0 48h-14" fill="none" stroke="#151515" stroke-width="12"/><path d="M120 92c-10 12 10 18 0 30M150 88c-10 12 10 18 0 30M180 92c-10 12 10 18 0 30" fill="none" stroke="#fbf8f2" stroke-width="7" stroke-linecap="round"/>
+  <text x="150" y="350" text-anchor="middle" font-family="Syne, sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#151515">IMAGE 03</text>
+</svg>

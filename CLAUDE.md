@@ -1,0 +1,109 @@
+# Darrpana's Café — portfolio site
+
+Portfolio for Darrpana, a Product/UX designer with a background in communication design, illustration and visual design. The site is one playful café-themed landing page plus a few subpages. Everything here is built and working. The art and content are **placeholders** waiting for Darrpana's real illustrations and projects.
+
+## Tech
+
+- Static HTML, CSS and plain JavaScript. No framework, no build step, no dependencies. Don't add any unless they're clearly needed.
+- Opens straight from disk (`index.html`). For testing, serve it with one of:
+  - `python3 -m http.server 4173`
+  - `ruby -run -e httpd . -p 4173`
+- Scripts are classic `<script>` tags, not ES modules, so `file://` works. Keep it that way.
+- One typeface everywhere: **Syne** (Google Fonts), except the handwritten travel notes (**Caveat**, about.html only). Syne has no italic, so accent words are coloured, not italicised.
+
+## Structure
+
+```
+index.html              landing page; each <section data-component="…"> is filled by a component
+about.html              About page: scroll story with photo stickers, brand logos, bookshelf, travel strip (config.aboutPage)
+illustrations.html      gallery of 54 images + <dialog> lightbox (?open=N opens image N)
+branding.html[?p=slug]  all branding projects, or one (config.explorations.branding)
+ai.html[?p=slug]        all AI pet projects, or one (config.explorations.ai)
+case-study.html?p=…     case study: full template (like darrpana.com/convora) when the project has `caseStudy` in config, else a placeholder
+css/styles.css          design tokens at the top, then one block per section, then reduced-motion rules
+js/config.js            ALL content: copy, links, image paths, projects, timeline, gallery, socials, email, resume
+js/core.js              Cafe namespace: component registry, esc(), clamp/lerp, a shared rAF scroll loop
+                        (onFrame), re-measure hook (onLayout), reveal observer, mailto(), resolveHref()
+js/icons.js             hand-drawn inline SVG icons (social, timeline, doodles)
+js/components/*.js      header, hero, persistent-cup, cursor, work-stack (work.js kept, unused),
+                        about, timeline (career), explorations, social, closing, footer
+js/pages.js             subpage components (galleryPage, brandingPage, caseStudyPage)
+js/main.js              boot: render every [data-component], then init each one
+assets/                 placeholder art (all replaceable)
+```
+
+**Component pattern:** `Cafe.register("name", { render(cfg) → HTML string, init(rootEl, cfg) })`. Escape all config text with `Cafe.esc()`. Content belongs in `js/config.js`, never hard-coded in components.
+
+## Design rules
+
+- **Palette:** taken from Darrpana's colour reference image (dark artwork with flowing ribbons). Use these exact values:
+  - warm white `#FBF8F2`; the hero is pure white `#FFFFFF` to match the artwork
+  - nav links `#7775F5`
+  - near-black `#151515`
+  - blue-violet purple `#5B55E0`; use `#A39FF5` for purple text on dark backgrounds
+  - sticker purple `#6C6AFB` (from Darrpana's own illustrations; for illustration backing only, not text)
+  - magenta `#D62A7E`
+  - mint `#72CFB8`
+  - cream `#F3ECDF` and soft grey `#ECE9E4` for surfaces
+- **Sharp corners everywhere:** 2px radius max (`--radius`), on cards, photos, buttons, pills, labels. Only small dots/pins stay round.
+- **No shadows anywhere** (no box-shadow, drop-shadow or text-shadow). Outline rings (`0 0 0 Npx`) are fine.
+- Most of the page stays black and white. Colour goes in illustrations, small interactions and details.
+- **Wavy ribbon transitions** (mint, purple, magenta) between some sections echo the colour reference. Use them only at selected section boundaries, not everywhere.
+- **Copy:** concise and witty, with few coffee puns. Never invent personal details, achievements or qualifications.
+- The nav has exactly 4 items: **Work, Explorations, About, Resume**. The first 3 scroll the landing page; Resume opens the PDF in a new tab. Don't turn sections into separate pages.
+
+## Interactions (all built; keep their rules)
+
+- **Hero** (`hero.js`): Darrpana's composition exactly as drawn: the cup sticker (`assets/hero/cup-sticker.webp`) and four hand-lettered labels cut from `assets/hero/hero-original.webp`, placed in % of its 1802 × 1112 canvas (`config.hero`). Scroll dive (motion allowed): the stage is pinned with `position: sticky` in a 290vh track; labels drift away, the scene zooms into the cup's black (`config.hero.dive`), a black circle opens from there and fades into the site dark, then the sign + headline rise in and the stage unpins into Work (whose top ribbons are hidden in this mode). Plain scrolling, no hijacking; focusing the intro link jumps to the end of the dive. Clicking the sticker wiggles it and says "Oh, hey." Reduced motion: no pin or zoom; the composition sits above the intro.
+- **Section stickers** (`Cafe.sticker()` in `core.js`): career (slides), explorations (sketchbook), plus the about mug and the closing scene. They're drawn in the hero's style: black ink, purple `#6C6AFB` backing made by an SVG `feMorphology` filter, and a paper die-cut edge on the ones that sit on dark sections. They float gently and wiggle on hover.
+- **Corner cup** (`persistent-cup.js`): drains by section (levels in `config.cupLevels`), then travels on an arc into `.cup-slot` in the closing scene, empty.
+- **Work section — card stack** (`work-stack.js`, now what `#work` uses; content in `config.work.stack`, placeholder copy, images/links from `work.projects`): a "Selected work" kicker, then rounded colour cards (purple, mint, magenta, lilac, white), each in a sticky slot. Desktop card: count + label top-left, big uppercase title and a short uppercase line bottom-left, square media panel right. Scrolling flies each card in from alternating sides (tilted in 3D: ~7° turn, 8.5° twist, straightening as it lands) and the cards beneath sink back (up 15px, back 27px, ~2% smaller per card on top). Phones: one column, centred text, cards rise straight up. **Exception to the sharp-corners rule:** this section keeps its reference shape, 16px card / 12px media radius (20px cards on phones).
+- **Previous work section** (`work.js`, not mounted now; switch `#work` back to `data-component="work"` to restore): six projects (`config.work.projects`) filed as cards in a folder pocket, like the reference collage. No side text: the landscape folder is centred and spans the screen.
+  - Each card is only the project thumbnail (full bleed, outlined in its `paper` colour, tints of the folder purple) and a short title tab (`name`, 4–5 words, regular weight).
+  - The stage is pinned with `position: sticky` in a tall track; scroll progress drives the cards (no hijacking).
+  - The pocket is a thin `#716DF2` band (14% of the folder) with a wide half-ellipse notch and a counter, so ~85% of the front card shows even while filed; back cards peek higher with their titles. In turn, each card rises fully out, holds, then is tossed up and away while the next slides forward. The last one stays out.
+  - Every card links to its case study (`href`), clickable even while tucked in; keyboard focus pulls a card out.
+  - Projects 01–02 are placeholders; 03–06 come from darrpana.com.
+  - Reduced motion: no pin; cards are a plain grid.
+- **Explorations** (`explorations.js`, content in `config.explorations` + `config.gallery`): three café corners instead of carousels, each with a "See all" link to its full page.
+  - Illustrations, "Latte art": cups seen from above on a cream table, each illustration as the latte art; hover turns a cup on its saucer (steam ring), click opens it in `illustrations.html`. The gallery starts with Darrpana's 4 real artworks; the other 50 are placeholders.
+  - Branding, "The packaging shelf": a coffee bag per project on a shelf, cover as the label; hover pulls it forward. Six projects named after her Framer pages (Footwear brand, House of Beauty, Real estate, Nine Spices, Dessert Corner, Believe Collective), covers/images placeholders (`placeholder: true`).
+  - AI pet projects, "The capsule rack": five dummy projects (`assets/ai/*.svg`) as coffee capsules under a little machine screen; hover/focus pops a capsule and shows its project on the screen.
+  - Full pages: `branding.html` and `ai.html` share `collectionPage()` in `pages.js` (grid of all projects, or one project with `?p=slug`); `illustrations.html` is the gallery.
+- **Project cursor** (`cursor.js`): coffee bean by default. Over a project card it becomes Darrpana's espresso cup (`config.work.cursorCup`, cut from her `espresso-1.svg`). Its steam is live SVG: three wisps morph between two S-curves (SMIL) while dashes rise along them in a seamless loop. The cup trails the pointer slightly and tilts with horizontal speed, as if carried. Mouse only; a pink dot always marks the real click point. Reduced motion: still steam, no trailing.
+- **Career timeline** (`timeline.js`):
+  - An SVG path draws itself with scroll while a bean travels along it. It's pinned with sticky on desktop and vertical on mobile.
+  - Psychology is a dashed side branch (`config.career.influence`).
+  - At the end the bean turns into a cup.
+- **About page** (`about-page.js`; nav "About" opens it, shown as a super-light purple pill): site palette only; every heading on the page (greeting, brands, books, travel) is 40px. Opens straight into a pinned scroll story like atulkhola.com. Above the greeting sits Darrpana's coffee illustration, cut into pieces (`assets/about/brew/`, boxes in `aboutPage.story.brew` on a 1900 × 700 canvas): on landing a French press pours into the front cup of an overlapping huddle of five; scrolling through the greeting step drains the stream (clip from the top), the other cups lean in and clink (cheers, with a clink sound) then float off one by one like steam (`fly`, `delay`), and turns the press 43° upright (crossfading to the upright press) while the cup shifts so the finished pair ends centred. Then a coffee greeting ("…Hi, I'm Darrpana!"), then the About text in 3 sections with [[highlighted]] words. Each section brings its own square photo stickers (thick `--sticker` blue outline, `assets/about/s1-* / s2-* / s3-*`, cropped from Darrpana's photos) to the sides, and the previous section's photos leave. Hovering a photo shows its short Gen Z speech bubble (`say` in config). The page then fades from white to black as the brand logos come in (trimmed in the browser, sized by equal area, pointer spotlight) and stays black: "Espresso & Epilogues" is one pile of 7 books, black with a thick `#716DF2` purple outline and white pages, like the coffee illustration (`books.color`), drawn like her stacked-books reference: each book an SVG 3D box (spine with title + bands facing you, cover on top, striped pages at one end), at different angles and leaning different ways, the longest as the base, with twinkling sparkles; hover for title + author, click to slide one out; then travel ("Espresso & Passports", on black): one portrait (4:5) perforated stamp whose photo flips through all 22 as you scroll, small Caveat handwriting either side (left: photo number + "84 cities down!"; right: notes from `travel.paper.notes`; stacked on phones).
+- **Footer treats** (`footer.js`, pages with `<body data-treats>`, currently about.html): the social links as Darrpana's treats on black, croissant = LinkedIn, cookie = Instagram, cupcake = Behance (`assets/treats/*-fresh|eaten.webp`, `config.footer.treats`). Hover/focus shows the eaten version with a crunch sound. Two looks shown for comparing (`styles`): Option 1 a deep tray with handwritten labels under it, Option 2 a diamond tissue under each, drawn as a cream scalloped outline with a dotted lace line, label written on it, spaced well apart; keep one.
+- **About page motion layer** (`about-page.js`; all off for reduced motion):
+  - Story words light up one by one as you scroll (`.w` spans); a highlight sweeps in once its words are lit.
+  - "Things that keep me going" (`aboutPage.loves`, from her About text): two rows of giant purple words sliding sideways in opposite directions with the scroll, leaning (skew) into fast scrolling.
+  - Brands: pinned; logos orbit a counting "90+" on two dashed rings turning opposite ways; rings grow in as the section arrives.
+  - Books: the pile drops in book by book, bottom first, with a knock as each lands.
+  - Travel: each photo flips in 3D; a postmark (heading + count on a ring, wavy cancel lines) turns with scroll and thunks on every change.
+  - Section headings rise in letter by letter; an espresso-shot tube on the right edge fills with page progress.
+- **Café walk** (`about-cafe.html`, `cafe-walk.js`, copy in `config.cafeWalk`): a separate About page — a line-drawn café (inline SVG, ink on very light grey `#f1f1ef`) pinned and walked sideways by scrolling (1px scroll = 1px walk; scene 8800 × 1000 units scaled to the screen height, `--k` = px per unit). Corners: entrance (welcome) → counter (chalkboard hello that writes itself in, receipt printing from the till, Wi-Fi password card, menu cards with the rest of the About text, espresso machine that steams + brews when clicked) → bookcase (her books on a shelf, hover/click) → table (laptop cycling brand logos, steaming cup, sticky notes of things she loves) → window with the 22 travel photos pegged on strings + her art framed on the wall → pastry case (treats = social links, crunch) → exit door. Lamps sway with scroll speed, foreground plants parallax, a corner map at the bottom jumps between corners.
+- **Header**: hides while scrolling down, returns on scroll up (all pages).
+- **Sound** (`sound.js`, toggle bottom-left, remembered per browser): synthesised café sounds, no files. Homepage: espresso brewing when the hero cup is clicked and as the coffee fills the screen in the dive. About: a clink as the cups toast, a crunch when a footer treat is bitten, a pop as story photos land, a chirp when a photo talks, a knock on book hover, a page flip when a book is pulled out, a shutter on travel-photo hover. Browsers keep audio locked until the first click/key, so the toggle says "Tap for café sounds" until then.
+- **Smooth scroll** (`core.js`): wheel/trackpad scrolling eases towards a target (Lenis-style) on every page; real scrolling underneath, off for touch and reduced motion.
+- **Accessibility:** no scroll hijacking, and no forced waits or games. Keep keyboard access, visible focus and `aria` labels. Respect `prefers-reduced-motion`: static timeline, no tilt or lift, instant coffee, everything visible.
+
+## Replacing placeholder art (the next job)
+
+Darrpana will supply her own illustrations. Keep these canvas sizes, or update the CSS positions to match the new art:
+
+- **Hero:** swap `assets/hero/cup-sticker.webp` / `label-*.webp` and update their x / y / w / h in `config.hero` (pixels on the canvas).
+- **Closing scene:** `assets/closing/closing-scene.svg`, **600 × 520**, table top at y ≈ 402. The corner cup lands at `.cup-slot` (in % of the scene).
+- **Section stickers:** `assets/stickers/*.svg`, paths in `config` (`career.sticker`, `explorations.sticker`).
+- **About illustration:** `assets/about/portrait.svg` (400 × 480), currently a sticker of a mug full of drawing tools.
+- **Ratios:** project mockups 3:2, gallery images square, branding covers 4:3. Paths live in `js/config.js`.
+- **Formats:** SVG is preferred for line art. Otherwise use transparent PNG at about 2×. Make web-sized copies of large images.
+- **Process:** put each image in its slot → re-measure the anchor points (hero canvas positions, table line, landing spot) → check every interaction at desktop, tablet (768px) and mobile (375px) widths.
+
+## Still to do
+
+- Project 01 is Convora with a full case study (`work.projects[0].caseStudy`; images load from Darrpana's Framer site). Add the other four projects the same way: copy the `caseStudy` block.
+- Add the real gallery images and branding projects.
+- Check the experience in a real, visible browser. Earlier testing was in a background pane that throttles animation.

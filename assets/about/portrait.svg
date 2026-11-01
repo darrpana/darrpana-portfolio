@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 480" width="400" height="480">
+  <title>Sticker: a mug full of drawing tools — pencil, ruler and paintbrush</title>
+  <defs>
+    <filter id="sticker" x="-10%" y="-10%" width="120%" height="120%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="15" result="grown"/>
+      <feFlood flood-color="#6C6AFB"/>
+      <feComposite in2="grown" operator="in" result="backing"/>
+      <feMerge><feMergeNode in="backing"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#sticker)" stroke="#151515" stroke-linecap="round" stroke-linejoin="round">
+    <!-- back of the rim -->
+    <ellipse cx="190" cy="222" rx="110" ry="24" fill="#151515" stroke-width="9"/>
+    <!-- paintbrush -->
+    <g transform="translate(250 252) rotate(18)">
+      <path d="M-10 0 L-10 -108 Q-10 -114 -4 -114 L4 -114 Q10 -114 10 -108 L10 0 Z" fill="#151515" stroke-width="8"/>
+      <path d="M-13 -112 L13 -112 L13 -146 L-13 -146 Z" fill="#6C6AFB" stroke-width="8"/>
+      <path d="M-13 -126 L13 -126" stroke-width="5"/>
+      <path d="M-14 -146 Q-20 -176 0 -200 Q20 -176 14 -146 Z" fill="#151515" stroke-width="8"/>
+      <path d="M0 -186 Q-6 -172 -2 -160" fill="none" stroke="#6C6AFB" stroke-width="5"/>
+    </g>
+    <!-- ruler -->
+    <g transform="translate(196 252) rotate(3)">
+      <path d="M-15 0 L-15 -160 L15 -160 L15 0 Z" fill="#6C6AFB" stroke-width="8"/>
+      <g stroke-width="5">
+        <path d="M-15 -140 L-2 -140"/><path d="M-15 -122 L-7 -122"/><path d="M-15 -104 L-2 -104"/>
+        <path d="M-15 -86 L-7 -86"/><path d="M-15 -68 L-2 -68"/><path d="M-15 -50 L-7 -50"/>
+      </g>
+    </g>
+    <!-- pencil -->
+    <g transform="translate(140 252) rotate(-14)">
+      <path d="M-16 0 L-16 -150 L16 -150 L16 0 Z" fill="#151515" stroke-width="8"/>
+      <path d="M0 -10 L0 -140" stroke="#6C6AFB" stroke-width="5"/>
+      <path d="M-16 -150 L0 -192 L16 -150 Z" fill="#6C6AFB" stroke-width="8"/>
+      <path d="M-5 -179 L0 -192 L5 -179 Z" fill="#151515" stroke-width="5"/>
+    </g>
+    <!-- handle -->
+    <path d="M292 262 Q356 256 352 322 Q348 382 288 384" fill="none" stroke-width="40"/>
+    <path d="M292 262 Q356 256 352 322 Q348 382 288 384" fill="none" stroke="#6C6AFB" stroke-width="20"/>
+    <!-- mug body, top edge follows the front of the rim -->
+    <path d="M80 222 Q190 270 300 222 L286 408 Q282 440 252 440 L128 440 Q98 440 94 408 Z" fill="#151515" stroke-width="9"/>
+    <path d="M96 236 Q190 274 284 236" fill="none" stroke="#6C6AFB" stroke-width="6"/>
+    <!-- bean on the mug -->
+    <g transform="translate(190 340) rotate(24)">
+      <ellipse rx="34" ry="46" fill="#6C6AFB" stroke-width="0"/>
+      <path d="M-4 -40 C 14 -16 -16 12 4 40" fill="none" stroke-width="8"/>
+    </g>
+    <!-- sparkle -->
+    <g stroke-width="11" fill="none">
+      <path d="M318 74 L332 50"/><path d="M336 100 L362 88"/><path d="M338 126 L366 128"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" fill="none" stroke="#151515" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><title>Project 04 placeholder mockup</title><rect width="1200" height="800" fill="#151515" stroke="none"/>
+<path d="M0 530 C 300 460, 700 760, 1200 620 L 1200 800 L 0 800 Z" fill="#5B55E0" stroke="none" opacity=".55"/>
+<rect x="120" y="110" width="960" height="600" rx="22" fill="#FBF8F2"/>
+<path d="M120 160 L 1080 160"/>
+<circle cx="156" cy="135" r="7" fill="#D62A7E" stroke="none"/><circle cx="180" cy="135" r="7" fill="#72CFB8" stroke="none"/><circle cx="204" cy="135" r="7" fill="#5B55E0" stroke="none"/>
+<rect x="150" y="190" width="220" height="490" rx="14" fill="#E7E3DC" stroke="none"/>
+<rect x="176" y="220" width="120" height="14" rx="7" fill="#151515" stroke="none"/>
+<rect x="176" y="260" width="160" height="10" rx="5" fill="#151515" stroke="none" opacity=".25"/>
+<rect x="176" y="286" width="140" height="10" rx="5" fill="#151515" stroke="none" opacity=".25"/>
+<rect x="176" y="312" width="150" height="10" rx="5" fill="#5B55E0" stroke="none"/>
+<rect x="400" y="190" width="650" height="120" rx="14" fill="#5B55E0" stroke="none"/>
+<text x="430" y="262" font-family="Georgia, serif" font-size="40" fill="#FBF8F2" stroke="none">Project 04 mockup</text>
+<rect x="400" y="340" width="190" height="340" rx="14" fill="#E7E3DC" stroke="none"/>
+<rect x="620" y="491" width="30" height="69" rx="4" fill="#5B55E0" stroke="none" opacity="0.9"/><rect x="672" y="375" width="30" height="185" rx="4" fill="#151515" stroke="none" opacity="0.18"/><rect x="724" y="485" width="30" height="75" rx="4" fill="#5B55E0" stroke="none" opacity="0.9"/><rect x="776" y="436" width="30" height="124" rx="4" fill="#151515" stroke="none" opacity="0.18"/><rect x="828" y="387" width="30" height="173" rx="4" fill="#5B55E0" stroke="none" opacity="0.9"/><rect x="880" y="377" width="30" height="183" rx="4" fill="#151515" stroke="none" opacity="0.18"/><rect x="932" y="344" width="30" height="216" rx="4" fill="#5B55E0" stroke="none" opacity="0.9"/><rect x="984" y="343" width="30" height="217" rx="4" fill="#151515" stroke="none" opacity="0.18"/>
+<path d="M600 640 L 1040 640" stroke-width="2"/>
+</svg>

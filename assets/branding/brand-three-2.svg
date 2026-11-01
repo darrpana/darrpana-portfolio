@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" width="1600" height="1000" fill="none" stroke="#151515" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><title>brand-three application 2 placeholder</title><rect width="1600" height="1000" fill="#FBF8F2" stroke="none"/>
+<rect x="300" y="160" width="480" height="680" rx="24" fill="#72CFB8" stroke="none" opacity="0.6"/>
+<rect x="900" y="200" width="460" height="300" rx="18" fill="#FBF8F2"/>
+<text x="940" y="380" font-family="Georgia, serif" font-size="120" fill="#151515" stroke="none">B3</text>
+<path d="M900 600 L 1360 600 M 900 650 L 1240 650 M 900 700 L 1300 700" stroke-width="6" opacity=".3"/>
+<text x="900" y="820" font-family="Helvetica, Arial, sans-serif" font-size="28" letter-spacing="6" fill="#151515" stroke="none">APPLICATION 02</text>
+</svg>

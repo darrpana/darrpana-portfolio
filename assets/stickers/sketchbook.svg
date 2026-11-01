@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 30 372 260" width="372" height="260">
+  <title>Sticker: an open sketchbook with doodles and a pencil</title>
+  <defs>
+    <filter id="sticker" x="-10%" y="-10%" width="120%" height="120%">
+      <feMorphology in="SourceAlpha" operator="dilate" radius="14" result="grown"/>
+      <feFlood flood-color="#6C6AFB"/>
+      <feComposite in2="grown" operator="in" result="backing"/>
+      <feMerge><feMergeNode in="backing"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <g filter="url(#sticker)" stroke="#151515" stroke-linecap="round" stroke-linejoin="round">
+    <!-- back cover and pages -->
+    <path d="M24 86 L24 236 Q100 216 180 244 Q258 216 338 236 L338 86 Z" fill="#151515" stroke-width="8"/>
+    <path d="M32 72 Q102 52 180 80 L180 230 Q102 202 32 222 Z" fill="#6C6AFB" stroke-width="8"/>
+    <path d="M180 80 Q258 52 330 72 L330 222 Q258 202 180 230 Z" fill="#6C6AFB" stroke-width="8"/>
+    <!-- spiral -->
+    <g stroke-width="7">
+      <path d="M172 96 L188 96"/><path d="M172 114 L188 114"/><path d="M172 132 L188 132"/><path d="M172 150 L188 150"/>
+      <path d="M172 168 L188 168"/><path d="M172 186 L188 186"/><path d="M172 204 L188 204"/>
+    </g>
+    <!-- doodles -->
+    <path d="M54 124 C68 102 84 146 98 124 S128 102 142 124" fill="none" stroke-width="7"/>
+    <path d="M70 172 Q100 160 136 176" fill="none" stroke-width="6"/>
+    <path d="M250 96 L257 114 L276 115 L261 127 L266 146 L250 135 L234 146 L239 127 L224 115 L243 114 Z" fill="#151515" stroke-width="5"/>
+    <path d="M210 168 L300 162"/><path d="M210 188 L276 184" stroke-width="6"/>
+    <!-- pencil -->
+    <g transform="translate(214 236) rotate(-38)">
+      <path d="M-28 -14 L0 -14 L0 14 L-28 14 Q-34 14 -34 8 L-34 -8 Q-34 -14 -28 -14 Z" fill="#6C6AFB" stroke-width="7"/>
+      <path d="M0 -14 L118 -14 L118 14 L0 14 Z" fill="#151515" stroke-width="7"/>
+      <path d="M8 0 L110 0" stroke="#6C6AFB" stroke-width="5"/>
+      <path d="M118 -14 L150 0 L118 14 Z" fill="#6C6AFB" stroke-width="7"/>
+      <path d="M140 -4.5 L150 0 L140 4.5 Z" fill="#151515" stroke-width="5"/>
+    </g>
+  </g>
+</svg>
