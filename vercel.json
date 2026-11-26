@@ -1,0 +1,17 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/(CLAUDE.md|README.md|LICENSE)", "destination": "/", "permanent": true },
+    { "source": "/case-study(.html)?", "has": [{ "type": "query", "key": "p", "value": "(?<p>.+)" }], "destination": "/work/:p", "permanent": true },
+    { "source": "/branding(.html)?", "has": [{ "type": "query", "key": "p", "value": "(?<p>.+)" }], "destination": "/branding/:p", "permanent": true },
+    { "source": "/websites(.html)?", "has": [{ "type": "query", "key": "p", "value": "(?<p>.+)" }], "destination": "/websites/:p", "permanent": true },
+    { "source": "/ai(.html)?", "has": [{ "type": "query", "key": "p", "value": "(?<p>.+)" }], "destination": "/ai/:p", "permanent": true },
+    { "source": "/work", "destination": "/#work", "permanent": true }
+  ],
+  "rewrites": [
+    { "source": "/work/:slug", "destination": "/case-study.html" },
+    { "source": "/branding/:slug", "destination": "/branding.html" },
+    { "source": "/websites/:slug", "destination": "/websites.html" },
+    { "source": "/ai/:slug", "destination": "/ai.html" }
+  ]
+}
