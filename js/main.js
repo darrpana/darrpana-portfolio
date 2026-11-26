@@ -2,6 +2,9 @@
 (function () {
   const { components, cfg, observeReveals, requestFrame } = window.Cafe;
   document.documentElement.classList.remove("no-js");
+  // Old ?p= links are redirected to clean URLs, but Netlify keeps the query: drop it from the address bar
+  const path = location.pathname.split("/").filter(Boolean);
+  if (path.length === 2 && new URLSearchParams(location.search).has("p")) history.replaceState(null, "", location.pathname + location.hash);
 
   const mounts = Array.from(document.querySelectorAll("[data-component]"));
   mounts.forEach((el) => {
