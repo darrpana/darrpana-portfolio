@@ -2,6 +2,12 @@
 
 Portfolio for Darrpana, a Product/UX designer with a background in communication design, illustration and visual design. The site is one playful café-themed landing page plus a few subpages. Everything here is built and working. The art and content are **placeholders** waiting for Darrpana's real illustrations and projects.
 
+## Publishing (standing instruction from Darrpana)
+Every change requested here goes live automatically, without asking: check it in the browser, then
+`git add -A && git commit -m "..." && git push`. GitHub `main` is linked to Netlify (project
+lighthearted-dragon-11a173), which deploys darrpana.com within a minute. Never push a broken page.
+DNS: GoDaddy, A @ 75.2.60.5, CNAME www -> lighthearted-dragon-11a173.netlify.app.
+
 ## Tech
 
 - Static HTML, CSS and plain JavaScript. No framework, no build step, no dependencies. Don't add any unless they're clearly needed.
