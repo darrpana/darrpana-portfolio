@@ -85,7 +85,10 @@ const collectionPage = (key, file) => ({
     const g = cfg.explorations[key];
     const list = g.projects;
     const i = list.findIndex((b) => b.slug === Cafe.query("p"));
-    const back = `<a class="back" href="explorations.html"><span aria-hidden="true">←</span> Back to explorations</a>`;
+    // websites.html is reached from the Work stack, the other groups from Explorations
+    const back = key === "websites"
+      ? `<a class="back" href="index.html#work"><span aria-hidden="true">←</span> Back to the menu</a>`
+      : `<a class="back" href="explorations.html"><span aria-hidden="true">←</span> Back to explorations</a>`;
     if (i < 0) {
       document.title = `${g.title} — Darrpana`;
       return `<div class="container">${back}
@@ -107,10 +110,14 @@ const collectionPage = (key, file) => ({
         <a class="back" href="${file}"><span aria-hidden="true">←</span> All ${esc(g.title.toLowerCase())}</a>
         <p class="eyebrow">${esc(b.tag)}</p>
         <h1 class="page__title">${esc(b.title)}</h1>
+        ${b.headline ? `<p class="page__lede">${esc(b.headline)}</p>` : ""}
         <p class="page__intro">${esc(b.summary)}</p>
-        <figure class="page__hero-img"><img src="${esc(b.cover)}" alt="${esc(b.title)} cover (placeholder)"></figure>
+        ${b.meta ? `<dl class="page__facts">${b.meta.map((m) => `<div><dt>${esc(m.label)}</dt><dd>${esc(m.value)}</dd></div>`).join("")}</dl>` : ""}
+        <figure class="page__hero-img"><img src="${esc(b.cover)}" alt="${esc(b.title)} cover${b.placeholder ? " (placeholder)" : ""}"></figure>
+        ${b.body ? `<div class="page__story">${b.body.map((s) => `<section><h2>${esc(s.h)}</h2><p>${esc(s.p)}</p></section>`).join("")}</div>` : ""}
+        ${b.stats ? `<dl class="page__stats">${b.stats.map(([v, l]) => `<div><dt>${esc(v)}</dt><dd>${esc(l)}</dd></div>`).join("")}</dl>` : ""}
         <div class="page__gallery">
-          ${b.images.map((src, k) => `<img src="${esc(src)}" alt="${esc(b.title)} image ${k + 1} (placeholder)" loading="lazy" decoding="async">`).join("")}
+          ${b.images.map((src, k) => `<img src="${esc(src)}" alt="${esc(b.title)}, image ${k + 1}${b.placeholder ? " (placeholder)" : ""}" loading="lazy" decoding="async">`).join("")}
         </div>
         <nav class="page__next" aria-label="More projects">
           <a class="link-cta" href="${file}">All ${esc(g.title.toLowerCase())}</a>
@@ -121,6 +128,7 @@ const collectionPage = (key, file) => ({
 });
 Cafe.register("brandingPage", collectionPage("branding", "branding.html"));
 Cafe.register("aiPage", collectionPage("ai", "ai.html"));
+Cafe.register("websitesPage", collectionPage("websites", "websites.html"));
 
 /* ---------- Case study (case-study.html?p=project-01) ---------- */
 Cafe.register("caseStudyPage", {
@@ -179,6 +187,7 @@ Cafe.register("caseStudyPage", {
         </header>
         <div class="cs__body">
           <div class="cs__wrap">
+            ${c.blocks ? this.blocks(c, p, img) : `
             <div class="cs__about">
               <dl class="cs__meta">${c.meta.map((m) => `<div><dt>${esc(m.label)}</dt><dd>${esc(m.value)}</dd></div>`).join("")}</dl>
               <div class="cs__overview">
@@ -192,7 +201,7 @@ Cafe.register("caseStudyPage", {
               <h2 class="cs__h">${esc(c.intro.heading)}</h2>
               <p class="cs__p">${esc(c.intro.text)}</p>
             </section>
-            <div class="cs__slides">${c.images.map(img).join("")}</div>
+            <div class="cs__slides">${c.images.map(img).join("")}</div>`}
           </div>
         </div>
         <nav class="cs__nav" aria-label="More projects">
@@ -218,5 +227,28 @@ Cafe.register("caseStudyPage", {
           </div>
         </footer>
       </article>`;
+  },
+
+  // Case studies imported from Framer (js/content.js) come as ordered blocks:
+  // { h3 } subheading, { lead } large statement, { p } paragraph, { stats: [[figure, label]] }, { img }.
+  // Meta sits on the left of the opening blocks; runs of images stack edge to edge as slides.
+  blocks(c, p, img) {
+    const { esc } = Cafe;
+    let html = "", run = [], n = 0;
+    const flush = () => { if (run.length) html += `<div class="cs__slides">${run.join("")}</div>`; run = []; };
+    for (const b of c.blocks) {
+      if (b.img) { run.push(img({ src: b.img }, n++)); continue; }
+      flush();
+      if (b.h3) html += `<h3 class="cs__h3">${esc(b.h3)}</h3>`;
+      else if (b.lead) html += `<p class="cs__lead">${esc(b.lead)}</p>`;
+      else if (b.p) html += `<p class="cs__p">${esc(b.p)}</p>`;
+      else if (b.stats) html += `<dl class="cs__stats">${b.stats.map(([v, l]) => `<div><dt>${esc(v)}</dt><dd>${esc(l)}</dd></div>`).join("")}</dl>`;
+    }
+    flush();
+    return `
+      <div class="cs__about cs__about--blocks">
+        <dl class="cs__meta">${c.meta.map((m) => `<div><dt>${esc(m.label)}</dt><dd>${esc(m.value)}</dd></div>`).join("")}</dl>
+        <div class="cs__flow">${html}</div>
+      </div>`;
   },
 });

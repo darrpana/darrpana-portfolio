@@ -496,7 +496,7 @@ window.CAFE_CONFIG = {
   },
 
   footer: {
-    text: "© 2026 Darrpana. Made with curiosity and coffee.",
+    text: "© 2026 Darrpana. All rights reserved. Made with curiosity and coffee.",
     // Social links as Darrpana's treats (fresh / eaten images): hover takes a bite.
     // Shown on pages whose <body> has data-treats. `styles` lists the looks to compare:
     // "tray" (all three on one long tray) and "tissue" (each on a diamond tissue).
@@ -512,11 +512,11 @@ window.CAFE_CONFIG = {
 
   // Bottom of a full case study (as on darrpana.com): project nav band + sign-off footer.
   caseStudyEnd: {
-    allProjects: { label: "All projects", image: "https://framerusercontent.com/images/osof6UkT7yLU6j1cGmuisLWUd0.png?scale-down-to=512" },
-    next: { label: "Next spot", image: "https://framerusercontent.com/images/YNgQxBlBg15ynrxacktZuqAYoQ.png" },
-    arrow: "https://framerusercontent.com/images/ae26EhqZfg0LqgTSdw05UozZ4.png?scale-down-to=512",
+    allProjects: { label: "All projects", image: "assets/work/site/osof6UkT7yLU6j1cGmuisLWUd0.png" },
+    next: { label: "Next spot", image: "assets/work/site/YNgQxBlBg15ynrxacktZuqAYoQ.png" },
+    arrow: "assets/work/site/ae26EhqZfg0LqgTSdw05UozZ4.png",
     greeting: "AHOY!",
-    copyright: "Darrpana © 2026 — Wander creatively, but leave my work be.",
+    copyright: "Darrpana © 2026. All rights reserved. Wander creatively, but leave my work be.",
   },
 
   // Persistent cup: liquid level (0–1) reached at the top of each section.
