@@ -8,7 +8,8 @@ Every change requested here goes live automatically, without asking: check it in
 ubiquitous-salmiakki-e31584, team darrpana), which deploys darrpana.com within a minute. Never push a broken page.
 Commits: author must be the GitHub account (git user.email 116337391+darrpana@users.noreply.github.com) and
 must NOT include a Co-Authored-By trailer. Netlify's free plan blocks deploys from unrecognized contributors.
-Darrpana chose this (2026-11-26).
+Darrpana chose this (2026-11-26). The repo darrpana/darrpana-portfolio must stay PUBLIC: Netlify free
+plan blocks Git deploys from private repos.
 DNS: GoDaddy, A @ 75.2.60.5, CNAME www -> ubiquitous-salmiakki-e31584.netlify.app.
 
 ## Tech
