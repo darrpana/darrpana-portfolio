@@ -2,3 +2,16 @@
 /CLAUDE.md  /  301!
 /README.md  /  301!
 /LICENSE  /  301!
+
+# Old project links → clean URLs
+/case-study.html  p=:p  /work/:p  301!
+/branding.html  p=:p  /branding/:p  301!
+/websites.html  p=:p  /websites/:p  301!
+/ai.html  p=:p  /ai/:p  301!
+
+# Clean URLs (the page reads the slug from the path)
+/work/*  /case-study.html  200
+/branding/*  /branding.html  200
+/websites/*  /websites.html  200
+/ai/*  /ai.html  200
+/work  /#work  301

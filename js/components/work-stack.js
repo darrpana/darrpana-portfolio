@@ -20,7 +20,7 @@ Cafe.register("workStack", {
               <h3 class="ws-card__h">${esc(c.title)}</h3>
               <p class="ws-card__p">${esc(c.line)}</p>
             </div>
-            <div class="ws-card__media">${p.image ? `<img src="${esc(p.image)}" alt="" loading="${i < 2 ? "eager" : "lazy"}" decoding="async">` : ""}</div>
+            <div class="ws-card__media">${p.image ? `<img src="${esc(p.image)}" alt="" loading="eager" decoding="async">` : ""}</div>
             <a class="ws-card__link" href="${esc(p.href || "#")}"${/^https?:/.test(p.href || "") ? ' target="_blank" rel="noopener noreferrer"' : ""} data-cursor="espresso"><span class="sr-only">${esc(c.label)}: ${esc(c.title)}</span></a>
           </article>
         </div>`;

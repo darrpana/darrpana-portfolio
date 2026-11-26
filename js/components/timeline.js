@@ -38,12 +38,7 @@ Cafe.register("career", {
         <div class="career__stage">
           <div class="container">
             <div class="career__head">
-              <div>
-                <p class="eyebrow">The long way round</p>
-                <h2 class="section-title" id="career-title">${esc(c.heading)}</h2>
-              </div>
-              ${Cafe.sticker(c.sticker, "career")}
-              <p class="career__hint" aria-hidden="true">follow the bean ↓</p>
+              <h2 class="section-title" id="career-title">${esc(c.heading)}</h2>
             </div>
             <div class="tl" style="--n:${n}">
               <svg class="tl__svg" aria-hidden="true" focusable="false">
@@ -64,8 +59,7 @@ Cafe.register("career", {
             </div>
           </div>
         </div>
-      </div>
-      <div class="ribbons ribbons--bottom" aria-hidden="true">${Cafe.ribbons()}</div>`;
+      </div>`;
   },
 
   init(root, cfg) {

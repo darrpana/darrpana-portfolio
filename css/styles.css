@@ -171,7 +171,7 @@ section[id], footer[id] { scroll-margin-top: var(--header-h); }
    Leave: beans tuck back into the pouch, it rights itself and fades. All transitions, so a
    quick hover in/out reverses smoothly from wherever it is. */
 .nav__icon--explore {
-  left: 50%; right: auto; top: 50%; width: 68px; height: 48px; margin-top: -27px;
+  left: 50%; right: auto; top: 50%; width: 50px; height: 35px; margin-top: -20px;
   transform: translateY(6px) scale(.7); transform-origin: 75% 85%;
   transition: opacity .22s .12s, transform .3s var(--ease-out) .08s;
 }
@@ -196,7 +196,7 @@ section[id], footer[id] { scroll-margin-top: var(--header-h); }
    the wrapper); hover pulls them apart — the wrapper slides aside, the cookie shifts out over
    the word, and three crumbs pop out with a soft bounce. */
 .nav__icon--about {
-  left: 44%; right: auto; top: 50%; width: 74px; height: 40px; margin-top: -21px;
+  left: 44%; right: auto; top: 50%; width: 54px; height: 29px; margin-top: -15px;
   transform: translateY(6px) scale(.7); transform-origin: 30% 70%;
   transition: opacity .22s .14s, transform .3s var(--ease-out) .08s;
 }
@@ -226,7 +226,7 @@ section[id], footer[id] { scroll-margin-top: var(--header-h); }
    Appear: the sticker pops in, the pencil tips into its drawn pose, wipes in its scribble
    with a little drawing jiggle, and the two accent marks pop. Leave: everything reverses. */
 .nav__icon--work {
-  left: 36%; right: auto; top: 50%; width: 62px; height: 42px; margin-top: -21px;
+  left: 36%; right: auto; top: 50%; width: 46px; height: 31px; margin-top: -16px;
   transform: translateY(6px) scale(.65) rotate(-6deg); transform-origin: 40% 70%;
   transition: opacity .22s .16s, transform .3s var(--ease-out) .1s;
 }
@@ -1267,19 +1267,26 @@ body.has-case-study .site-footer { display: none; }
 .explorations--page { padding-top: calc(var(--header-h) + clamp(32px, 6vw, 72px)); }
 
 /* ---------- Imported case studies (case-study.html, `caseStudy.blocks` from js/content.js) ---------- */
-.cs__about--blocks { padding-bottom: clamp(40px, 8vw, 88px); }
-.cs__about--blocks .cs__meta { position: sticky; top: calc(var(--header-h) + 24px); align-self: start; }
+/* Details (Tasks / Industry / Designed in) in one row across the top; the story in a centred
+   column below; screens run the full width of the case study. */
+.cs__about--blocks { display: block; padding: 16px 0 clamp(40px, 8vw, 88px); }
+.cs__about--blocks .cs__meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px clamp(32px, 6vw, 88px); padding-bottom: 32px; border-bottom: 1px solid rgba(8, 8, 8, .1); text-align: center; }
+.cs__about--blocks .cs__meta div { flex: 0 1 260px; }
+.cs__about--blocks .cs__meta div + div { margin-top: 0; }
+.cs__flow { margin-top: clamp(40px, 6vw, 72px); }
+.cs__flow > :not(.cs__slides) { max-width: 720px; margin-inline: auto; }
 .cs__flow > :first-child { margin-top: 0; }
 .cs__h3 { margin-top: clamp(40px, 6vw, 64px); font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem); font-weight: 600; line-height: 1.2; letter-spacing: -.5px; color: var(--cs-text); }
 .cs__h3 + .cs__p { margin-top: 12px; }
 .cs__p + .cs__h3 { margin-top: clamp(32px, 5vw, 48px); }
+.cs__flow .cs__p { font-size: 1.125rem; line-height: 1.6; color: var(--cs-text); opacity: .78; }
 .cs__lead { margin-top: 24px; font-size: clamp(1.375rem, 1.1rem + 1vw, 1.875rem); font-weight: 500; line-height: 1.3; letter-spacing: -.5px; color: var(--cs-text); }
-.cs__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; margin: 32px 0 0; }
+.cs__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 24px; margin: 32px 0 0; text-align: center; }
 .cs__stats dt { font-size: clamp(2.5rem, 1.8rem + 2.4vw, 3.75rem); font-weight: 600; line-height: 1; letter-spacing: -1px; color: #5b55e0; }
 .cs__stats dd { margin: 10px 0 0; font-size: 1rem; font-weight: 500; line-height: 1.4; color: var(--cs-muted); }
-.cs__flow .cs__slides { margin-top: 32px; display: grid; gap: 16px; }
+.cs__flow .cs__slides { margin-top: 40px; display: grid; gap: 16px; }
 .cs__flow .cs__slides img { border-radius: 2px; }
-@media (max-width: 759px) { .cs__about--blocks .cs__meta { position: static; flex-wrap: wrap; } }
+@media (max-width: 759px) { .cs__about--blocks .cs__meta div { flex-basis: 100%; } }
 
 /* ---------- Branding / website project pages (collectionPage detail) ---------- */
 .page__lede { margin-top: 12px; font-size: clamp(1.25rem, 1rem + 1vw, 1.75rem); font-weight: 600; line-height: 1.25; max-width: 32ch; }
@@ -1292,3 +1299,26 @@ body.has-case-study .site-footer { display: none; }
 .page__stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 24px; margin: clamp(32px, 5vw, 56px) 0 0; }
 .page__stats dt { font-size: clamp(2.25rem, 1.6rem + 2vw, 3.25rem); font-weight: 700; line-height: 1; color: #5b55e0; }
 .page__stats dd { margin: 8px 0 0; color: var(--ink-soft); line-height: 1.4; }
+
+/* ---------- Homepage about: "Meet the Traveller" card, as on Darrpana's Framer site ----------
+   Exception to the sharp-corners rule: the card keeps Framer's 16px radius. */
+.about { background: #fff; }
+.about .doodle { display: none; }
+.traveller { max-width: 1088px; margin-inline: auto; padding: 32px; border-radius: 16px; background: #5e5ad9; color: #cfd4e8; }
+.traveller__title { font-size: clamp(2rem, 1.4rem + 2vw, 3.125rem); font-weight: 500; line-height: 1.2; letter-spacing: -.7px; color: #cfd4e8; }
+.traveller__grid { display: grid; grid-template-columns: minmax(0, 356px) minmax(0, 550px); justify-content: space-between; align-items: start; gap: 40px; margin-top: 24px; }
+.traveller__img { width: 100%; height: auto; }
+.traveller__text { padding-top: 39px; }
+.traveller__text p { font-size: .9375rem; font-weight: 600; line-height: 1.3; }
+.traveller__text p + p { margin-top: 19px; }
+.traveller__text strong { font-weight: 700; }
+.traveller__cta { display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; padding: 8px; font-size: 1.0625rem; font-weight: 500; line-height: 1.6; color: #a3a0ee; text-decoration: none; }
+.traveller__cta img { width: 27px; height: auto; transition: transform .35s var(--ease-spring); }
+.traveller__cta:hover { color: #fff; }
+.traveller__cta:hover img { transform: rotate(-8deg) scale(1.1); }
+@media (max-width: 760px) {
+  .traveller { padding: 24px; }
+  .traveller__grid { grid-template-columns: 1fr; gap: 24px; }
+  .traveller__img { max-width: 320px; }
+  .traveller__text { padding-top: 0; }
+}

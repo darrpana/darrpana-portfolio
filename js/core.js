@@ -94,5 +94,7 @@ window.Cafe = (function () {
     finePointer: () => mqFine.matches,
     mqReduce, mqFine,
     query: (key) => new URLSearchParams(window.location.search).get(key),
+    // Project slug from a clean URL (/work/nimbus, /branding/codeastu); ?p= still works for old links
+    slug: () => new URLSearchParams(window.location.search).get("p") || decodeURIComponent(window.location.pathname.split("/").filter(Boolean)[1] || "") || null,
   };
 })();

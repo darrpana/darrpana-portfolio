@@ -9,7 +9,7 @@
   cfg.explorations.websites = {
     title: "Websites",
     description: "Websites for recruiters, photographers, dessert shops and caterers, each with its own voice.",
-    href: "websites.html",
+    href: "/websites",
     projects: data.websites,
   };
   cfg.gallery = data.gallery;
@@ -26,7 +26,7 @@
    ],
    "image": "assets/work/covers/e7LSUVztp6VdUQDw1RIb6mPzus.png",
    "imageAlt": "Convora team collaboration cover",
-   "href": "case-study.html?p=convora",
+   "href": "/work/convora",
    "paper": "#c4c2fa",
    "caseStudy": {
     "title": "Redefining workplace collaboration with a seamless and intelligent platform",
@@ -153,7 +153,7 @@
    ],
    "image": "assets/work/covers/l9J7mo2kv2wy6KXyzEWpUoU9X4.png",
    "imageAlt": "Furtens pet e-commerce cover",
-   "href": "case-study.html?p=furtens",
+   "href": "/work/furtens",
    "paper": "#9794f6",
    "caseStudy": {
     "title": "Pet products showcase, e-commerce done right with Furtens",
@@ -492,7 +492,7 @@
    ],
    "image": "assets/work/covers/UPc5K0UJsro4bHsK4v57VpGTDe8.jpg",
    "imageAlt": "Nimbus model risk cover",
-   "href": "case-study.html?p=nimbus",
+   "href": "/work/nimbus",
    "paper": "#b6b4f9",
    "caseStudy": {
     "title": "Model risk management solution for financial institutions.",
@@ -914,7 +914,7 @@
    ],
    "image": "assets/work/haier/CuVN6kDOu2PShxn5epvhm2qBA.webp",
    "imageAlt": "Haier strategy platform cover",
-   "href": "case-study.html?p=haier",
+   "href": "/work/haier",
    "paper": "#a9a6f8",
    "caseStudy": {
     "title": "Digital Transformation in a Multinational Home Appliances and Electronics Company",
@@ -1107,7 +1107,7 @@
    ],
    "image": "assets/work/covers/IAofs7Q1okEFcKCwWaZ73Rc00E.png",
    "imageAlt": "Website designs gallery cover",
-   "href": "websites.html",
+   "href": "/websites",
    "paper": "#d1d0fc"
   }
  ],

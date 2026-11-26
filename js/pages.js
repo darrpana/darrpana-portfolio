@@ -12,7 +12,7 @@ Cafe.register("galleryPage", {
       </button></li>`).join("");
     return `
       <div class="container">
-        <a class="back" href="explorations.html"><span aria-hidden="true">←</span> Back to explorations</a>
+        <a class="back" href="/explorations"><span aria-hidden="true">←</span> Back to explorations</a>
         <h1 class="page__title">${esc(ill.title)}</h1>
         <p class="page__intro">${esc(ill.description)}</p>
         <ul class="gallery">${tiles}</ul>
@@ -84,18 +84,18 @@ const collectionPage = (key, file) => ({
     const { esc } = Cafe;
     const g = cfg.explorations[key];
     const list = g.projects;
-    const i = list.findIndex((b) => b.slug === Cafe.query("p"));
+    const i = list.findIndex((b) => b.slug === Cafe.slug());
     // websites.html is reached from the Work stack, the other groups from Explorations
     const back = key === "websites"
-      ? `<a class="back" href="index.html#work"><span aria-hidden="true">←</span> Back to the menu</a>`
-      : `<a class="back" href="explorations.html"><span aria-hidden="true">←</span> Back to explorations</a>`;
+      ? `<a class="back" href="/#work"><span aria-hidden="true">←</span> Back to the menu</a>`
+      : `<a class="back" href="/explorations"><span aria-hidden="true">←</span> Back to explorations</a>`;
     if (i < 0) {
       document.title = `${g.title} — Darrpana`;
       return `<div class="container">${back}
         <h1 class="page__title">${esc(g.title)}</h1>
         <p class="page__intro">${esc(g.description)}</p>
         <ul class="coll-grid">${list.map((b) => `
-          <li><a class="brand-card" href="${file}?p=${encodeURIComponent(b.slug)}">
+          <li><a class="brand-card" href="${file}/${encodeURIComponent(b.slug)}">
             <div class="brand-card__media"><img src="${esc(b.cover)}" alt="" loading="lazy" decoding="async"></div>
             <span class="brand-card__tag">${esc(b.tag)}</span>
             <h2 class="brand-card__title">${esc(b.title)}</h2>
@@ -121,22 +121,22 @@ const collectionPage = (key, file) => ({
         </div>
         <nav class="page__next" aria-label="More projects">
           <a class="link-cta" href="${file}">All ${esc(g.title.toLowerCase())}</a>
-          <a class="link-cta" href="${file}?p=${encodeURIComponent(next.slug)}">Next: ${esc(next.title)}<span class="arrow" aria-hidden="true">→</span></a>
+          <a class="link-cta" href="${file}/${encodeURIComponent(next.slug)}">Next: ${esc(next.title)}<span class="arrow" aria-hidden="true">→</span></a>
         </nav>
       </article>`;
   },
 });
-Cafe.register("brandingPage", collectionPage("branding", "branding.html"));
-Cafe.register("aiPage", collectionPage("ai", "ai.html"));
-Cafe.register("websitesPage", collectionPage("websites", "websites.html"));
+Cafe.register("brandingPage", collectionPage("branding", "/branding"));
+Cafe.register("aiPage", collectionPage("ai", "/ai"));
+Cafe.register("websitesPage", collectionPage("websites", "/websites"));
 
 /* ---------- Case study (case-study.html?p=project-01) ---------- */
 Cafe.register("caseStudyPage", {
   render(cfg) {
     const { esc } = Cafe;
     const list = cfg.work.projects;
-    const i = list.findIndex((p) => p.href.endsWith(`p=${Cafe.query("p")}`));
-    const back = `<a class="back" href="index.html#work"><span aria-hidden="true">←</span> Back to the menu</a>`;
+    const i = list.findIndex((p) => p.href === `/work/${Cafe.slug()}`);
+    const back = `<a class="back" href="/#work"><span aria-hidden="true">←</span> Back to the menu</a>`;
     if (i < 0) {
       document.title = "Case studies — Darrpana";
       return `<div class="container">${back}<h1 class="page__title">Case studies</h1>
@@ -156,7 +156,7 @@ Cafe.register("caseStudyPage", {
         <figure class="page__hero-img"><img src="${esc(p.image)}" alt="${esc(p.imageAlt)}" width="1200" height="800"></figure>
         <p class="placeholder-note">The full case study is being plated. This page is a placeholder — add the write-up here.</p>
         <nav class="page__next" aria-label="More projects">
-          <a class="link-cta" href="index.html#work">All projects</a>
+          <a class="link-cta" href="/#work">All projects</a>
           <a class="link-cta" href="${esc(next.href)}">Next: ${esc(next.title)}<span class="arrow" aria-hidden="true">→</span></a>
         </nav>
       </article>`;
@@ -206,7 +206,7 @@ Cafe.register("caseStudyPage", {
         </div>
         <nav class="cs__nav" aria-label="More projects">
           <div class="cs__wrap">
-            <a class="cs__navlink" href="index.html#work">
+            <a class="cs__navlink" href="/#work">
               <span class="cs__navlabel"><img class="cs__arrow cs__arrow--back" src="${esc(end.arrow)}" alt="">${esc(end.allProjects.label)}</span>
               <img class="cs__navart" src="${esc(end.allProjects.image)}" alt="">
             </a>

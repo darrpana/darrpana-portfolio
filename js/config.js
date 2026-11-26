@@ -19,8 +19,8 @@ window.CAFE_CONFIG = {
 
   nav: [
     { label: "Work", href: "#work", icon: "work" }, // animated cup icon, js/components/header.js
-    { label: "Explorations", href: "explorations.html", icon: "explore" },
-    { label: "About", href: "about.html", icon: "about" },
+    { label: "Explorations", href: "/explorations", icon: "explore" },
+    { label: "About", href: "/about", icon: "about" },
     { label: "Resume", href: "resume", external: true, end: true, icon: "resume" }, // "resume" resolves to site.resumeUrl; `end` puts it on the right
   ],
 
@@ -198,15 +198,18 @@ window.CAFE_CONFIG = {
   },
 
   about: {
-    heading: "Okay, enough about the work. Meet me.",
+    // Same as the "Meet the Traveller" card on Darrpana's Framer site
+    heading: "Meet the Traveller",
+    // [[…]] marks the bold words
     paragraphs: [
-      "I'm a product designer with an artist's eye and a brain that rarely stays on one subject for too long. I started with Fine Arts, wandered through communication design and UX, and ended up making digital products. Somewhere along the way, I picked up an unhealthy curiosity for just about everything. Keeps life interesting, I suppose.",
+      "I am a [[user experience]] working globally with startups & people to create great products and designs. I have been commercializing and adding value to over 90 brands, including education, restaurants, consumer goods, media, lifestyle and technology for over 7 years.",
+      "A bit jocular, someone who would set their Wi-Fi password to 'What a beautiful house you have'. I find pure joy in exploring new places, am a devoted stand-up comedy enthusiast, and have a deep passion for gaming, fitness, adventure, Shah Rukh Khan, and coffee. 😄",
     ],
-    cta: { label: "Read the whole file →", href: "about.html" },
-    portrait: "assets/about/portrait.svg",
-    portraitAlt: "Sticker illustration of a coffee mug stuffed with a pencil, a ruler and a paintbrush",
-    annotation: "the essentials",
+    cta: { label: "Take a detour with me", href: "/about", icon: "assets/work/site/bHQyURlsKjKU2lu7bbVdD7lXIEM.png" },
+    portrait: "assets/work/site/7A53kLaT4cVQ4pyhyqbdNFJVFk8.png",
+    portraitAlt: "Darrpana in sunglasses waving hey, surrounded by her doodles",
   },
+
 
   // The About page (about.html, js/components/about-page.js). Images from darrpana.com
   // load from Framer; `dummy` images are placeholders to replace.
@@ -383,7 +386,7 @@ window.CAFE_CONFIG = {
       title: "AI pet projects",
       rackTitle: "The capsule rack",
       description: "Small experiments brewed with AI, just to see what happens.",
-      href: "ai.html",
+      href: "/ai",
       projects: [
         { slug: "ai-one", title: "AI project one", tag: "Experiment", cover: "assets/ai/ai-01.svg", summary: "Placeholder: what it is, what it does, what I learned.", images: ["assets/ai/ai-01.svg"] },
         { slug: "ai-two", title: "AI project two", tag: "Tool", cover: "assets/ai/ai-02.svg", summary: "Placeholder: what it is, what it does, what I learned.", images: ["assets/ai/ai-02.svg"] },
@@ -396,7 +399,7 @@ window.CAFE_CONFIG = {
       title: "Illustrations",
       tableTitle: "Latte art",
       description: "Sketchbook pages, commissions and things drawn for no reason at all.",
-      href: "illustrations.html",
+      href: "/illustrations",
       linkLabel: "Open the gallery →",
       previewCount: 6, // how many gallery images to show on the landing page
     },
@@ -404,7 +407,7 @@ window.CAFE_CONFIG = {
       title: "Branding",
       shelfTitle: "The packaging shelf",
       description: "Identities, systems and the small details that hold them together.",
-      href: "branding.html",
+      href: "/branding",
       projects: [
         {
           slug: "footwear-brand",

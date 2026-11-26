@@ -38,7 +38,7 @@ Cafe.register("explorations", {
     // 2. packaging shelf: a coffee bag per branding project
     const bags = br.projects.map((b, i) => `
       <li class="xp-bag reveal" style="--d:${(i * 0.06).toFixed(2)}s;--t:${[-2, 1.5, -1, 2, -1.5, 1][i % 6]}deg">
-        <a href="branding.html?p=${encodeURIComponent(b.slug)}">
+        <a href="/branding/${encodeURIComponent(b.slug)}">
           <span class="xp-bag__crimp" aria-hidden="true"></span>
           <span class="xp-bag__body">
             <span class="xp-bag__label"><img src="${esc(b.cover)}" alt="" loading="lazy" decoding="async"></span>
@@ -51,7 +51,7 @@ Cafe.register("explorations", {
     // 3. capsule rack: a capsule per AI project, a small screen shows the one you pick
     const capsules = ai.projects.map((p, i) => `
       <li class="xp-capsule${i ? "" : " is-on"}" style="--i:${i}">
-        <a href="ai.html?p=${encodeURIComponent(p.slug)}" data-i="${i}" aria-label="${esc(p.title)}">
+        <a href="/ai/${encodeURIComponent(p.slug)}" data-i="${i}" aria-label="${esc(p.title)}">
           <span class="xp-capsule__lid" aria-hidden="true"></span>
           <span class="xp-capsule__body" aria-hidden="true"><b>${String(i + 1).padStart(2, "0")}</b></span>
         </a>
@@ -90,7 +90,7 @@ Cafe.register("explorations", {
         <section class="xp-block" aria-labelledby="xp-ai">
           ${bar("xp-ai", ai.rackTitle, ai.title, `${ai.projects.length}`, ai.description, ai.href, "See all")}
           <div class="xp-machine">
-            <a class="xp-screen" href="ai.html?p=${encodeURIComponent(first.slug)}" aria-live="polite">
+            <a class="xp-screen" href="/ai/${encodeURIComponent(first.slug)}" aria-live="polite">
               <span class="xp-screen__img"><img src="${esc(first.cover)}" alt="" decoding="async"></span>
               <span class="xp-screen__text"><span class="xp-screen__tag">${esc(first.tag)}</span><span class="xp-screen__title">${esc(first.title)}</span><span class="xp-screen__go">Brew it <span aria-hidden="true">→</span></span></span>
             </a>
@@ -113,7 +113,7 @@ Cafe.register("explorations", {
       const p = ai[i];
       caps.forEach((c, k) => c.classList.toggle("is-on", k === i));
       screen.classList.remove("is-new"); void screen.offsetWidth; screen.classList.add("is-new");
-      screen.href = `ai.html?p=${encodeURIComponent(p.slug)}`;
+      screen.href = `/ai/${encodeURIComponent(p.slug)}`;
       screen.querySelector("img").src = p.cover;
       screen.querySelector(".xp-screen__tag").textContent = p.tag;
       screen.querySelector(".xp-screen__title").textContent = p.title;
