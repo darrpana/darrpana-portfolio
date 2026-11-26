@@ -119,6 +119,4 @@ Darrpana will supply her own illustrations. Keep these canvas sizes, or update t
 - Nimbus's Framer page lists Industry as "Consumer electronics and home appliances" (copied from Haier); Nine Spices shows Believe Collective's screens. Kept as on Framer until Darrpana confirms.
 - LICENSE: all rights reserved; `_redirects` hides CLAUDE.md, README.md and LICENSE on the live site.
 
-- Project 01 is Convora with a full case study (`work.projects[0].caseStudy`; images load from Darrpana's Framer site). Add the other four projects the same way: copy the `caseStudy` block.
-- Add the real gallery images and branding projects.
 - Check the experience in a real, visible browser. Earlier testing was in a background pane that throttles animation.
