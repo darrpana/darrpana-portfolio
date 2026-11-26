@@ -5,8 +5,11 @@ Portfolio for Darrpana, a Product/UX designer with a background in communication
 ## Publishing (standing instruction from Darrpana)
 Every change requested here goes live automatically, without asking: check it in the browser, then
 `git add -A && git commit -m "..." && git push`. GitHub `main` is linked to Netlify (project
-lighthearted-dragon-11a173), which deploys darrpana.com within a minute. Never push a broken page.
-DNS: GoDaddy, A @ 75.2.60.5, CNAME www -> lighthearted-dragon-11a173.netlify.app.
+ubiquitous-salmiakki-e31584, team darrpana), which deploys darrpana.com within a minute. Never push a broken page.
+Commits: author must be the GitHub account (git user.email 116337391+darrpana@users.noreply.github.com) and
+must NOT include a Co-Authored-By trailer. Netlify's free plan blocks deploys from unrecognized contributors.
+Darrpana chose this (2026-11-26).
+DNS: GoDaddy, A @ 75.2.60.5, CNAME www -> ubiquitous-salmiakki-e31584.netlify.app.
 
 ## Tech
 
