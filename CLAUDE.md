@@ -124,7 +124,7 @@ Darrpana will supply her own illustrations. Keep these canvas sizes, or update t
 
 - **Move hosting to Vercel (Darrpana asked, paused 2026-11-26):** to drop the Netlify badge. `vercel.json` is ready (clean URLs, rewrites, redirects). Next: she signs up at vercel.com with GitHub, imports darrpana-portfolio (Framework: Other, no build, no output dir), sends the .vercel.app address to check; then add darrpana.com in Vercel, update GoDaddy A @ and CNAME www to Vercel's values, remove the domain from Netlify.
 
-- Nimbus's Framer page lists Industry as "Consumer electronics and home appliances" (copied from Haier); Nine Spices shows Believe Collective's screens. Kept as on Framer until Darrpana confirms.
+- Nimbus's Framer page listed Industry as Haier's line; the importer now sets it to "Banking and financial services". Nine Spices shows Believe Collective's screens on Framer too; kept until Darrpana sends the right ones.
 - LICENSE: all rights reserved; `_redirects` hides CLAUDE.md, README.md and LICENSE on the live site.
 
 - Check the experience in a real, visible browser. Earlier testing was in a background pane that throttles animation.

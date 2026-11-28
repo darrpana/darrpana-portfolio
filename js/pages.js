@@ -235,11 +235,22 @@ Cafe.register("caseStudyPage", {
   blocks(c, p, img) {
     const { esc } = Cafe;
     let html = "", run = [], n = 0;
-    const flush = () => { if (run.length) html += `<div class="cs__slides">${run.join("")}</div>`; run = []; };
+    // tall screens (phone/page captures) sit two to a row, or narrower on their own
+    const flush = () => {
+      if (!run.length) return;
+      const solo = run.length === 1 && run[0].tall;
+      html += `<div class="cs__slides${solo ? " cs__slides--narrow" : ""}">${run.map((r) => r.tall && !solo ? r.html.replace("<img", '<img data-tall') : r.html).join("")}</div>`;
+      run = [];
+    };
+    const pic = (src) => `<img src="${esc(src)}" alt="" loading="lazy" decoding="async">`;
     for (const b of c.blocks) {
-      if (b.img) { run.push(img({ src: b.img }, n++)); continue; }
+      if (b.img) { run.push({ tall: !!b.tall, html: img({ src: b.img }, n++) }); continue; }
       flush();
-      if (b.h3) html += `<h3 class="cs__h3">${esc(b.h3)}</h3>`;
+      if (b.cap) html += `<p class="cs__cap">${esc(b.cap)}</p>`;
+      else if (b.h2) html += `<h2 class="cs__h2">${esc(b.h2)}</h2>`;
+      else if (b.cards) html += `<div class="cs__cards">${b.cards.map((k) => `<figure class="cs__card">${pic(k.img)}<figcaption><strong>${esc(k.h)}</strong>${esc(k.p)}</figcaption></figure>`).join("")}</div>`;
+      else if (b.people) html += `<div class="cs__people">${b.people.map((k) => `<div class="cs__person">${pic(k.img)}<div><h4>${esc(k.h)}</h4><p>${esc(k.p)}</p></div></div>`).join("")}</div>`;
+      else if (b.h3) html += `<h3 class="cs__h3">${esc(b.h3)}</h3>`;
       else if (b.lead) html += `<p class="cs__lead">${esc(b.lead)}</p>`;
       else if (b.p) html += `<p class="cs__p">${esc(b.p)}</p>`;
       else if (b.stats) html += `<dl class="cs__stats">${b.stats.map(([v, l]) => `<div><dt>${esc(v)}</dt><dd>${esc(l)}</dd></div>`).join("")}</dl>`;

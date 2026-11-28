@@ -73,10 +73,12 @@
       "img": "assets/work/convora/fWTRxIUk6Auz4TV7UtQQ2Tt9dRQ.png"
      },
      {
-      "img": "assets/work/convora/2ZJM8Gm64DEXlp3hcErhJAy2YM.png"
+      "img": "assets/work/convora/2ZJM8Gm64DEXlp3hcErhJAy2YM.png",
+      "tall": true
      },
      {
-      "img": "assets/work/convora/Ziu92eqkWgUJY3SC8jYWuJa7os.png"
+      "img": "assets/work/convora/Ziu92eqkWgUJY3SC8jYWuJa7os.png",
+      "tall": true
      },
      {
       "img": "assets/work/convora/SL4qgzva5CW1I0UCc64ft6yNqc.png"
@@ -88,7 +90,8 @@
       "img": "assets/work/convora/v2OfzTrLsCduGeOx7nJKk49TW9E.png"
      },
      {
-      "img": "assets/work/convora/BC73QrpxsmZs5VQA5XVKzyJa8I.png"
+      "img": "assets/work/convora/BC73QrpxsmZs5VQA5XVKzyJa8I.png",
+      "tall": true
      },
      {
       "img": "assets/work/convora/5h30AX9ukdBSexucUSyUT2O4.png"
@@ -118,10 +121,12 @@
       "img": "assets/work/convora/SP5ecHnk6TsI8WNpXCDAm8Cfw.png"
      },
      {
-      "img": "assets/work/convora/onQdT7tbzx9LmC2BlTpFLxB4Cs.png"
+      "img": "assets/work/convora/onQdT7tbzx9LmC2BlTpFLxB4Cs.png",
+      "tall": true
      },
      {
-      "img": "assets/work/convora/siDnJFNLt7YQl31FC08r5AGvTLM.png"
+      "img": "assets/work/convora/siDnJFNLt7YQl31FC08r5AGvTLM.png",
+      "tall": true
      },
      {
       "img": "assets/work/convora/ozNVMwFt5NGKuuC50q9u2lhMuU.png"
@@ -182,7 +187,7 @@
       "h3": "Task"
      },
      {
-      "h3": "To create a website, mobile app and admin panel"
+      "p": "To create a website, mobile app and admin panel."
      },
      {
       "h3": "Introduction"
@@ -209,31 +214,23 @@
       "h3": "Spotting hurdles"
      },
      {
-      "h3": "Limited Premium Options"
-     },
-     {
-      "p": "Difficulty finding luxury, high-quality pet care services and products."
-     },
-     {
-      "img": "assets/work/furtens/o5RiZK3zCMPGqHhPJ9DaVzPEwi0.png"
-     },
-     {
-      "h3": "Inconsistent Service Standards"
-     },
-     {
-      "p": "Challenges in finding consistently excellent grooming, training, and care."
-     },
-     {
-      "img": "assets/work/furtens/LYURZn4xZGJ3IY2EdnNRRwKHeo.png"
-     },
-     {
-      "h3": "Time Management"
-     },
-     {
-      "p": "Balancing a busy lifestyle with the demands of high-end pet care and services."
-     },
-     {
-      "img": "assets/work/furtens/BO9JLqN0pRz7O4EWMDnNL8pEAGA.png"
+      "cards": [
+       {
+        "h": "Limited Premium Options",
+        "p": "Difficulty finding luxury, high-quality pet care services and products.",
+        "img": "assets/work/furtens/o5RiZK3zCMPGqHhPJ9DaVzPEwi0.png"
+       },
+       {
+        "h": "Inconsistent Service Standards",
+        "p": "Challenges in finding consistently excellent grooming, training, and care.",
+        "img": "assets/work/furtens/LYURZn4xZGJ3IY2EdnNRRwKHeo.png"
+       },
+       {
+        "h": "Time Management",
+        "p": "Balancing a busy lifestyle with the demands of high-end pet care and services.",
+        "img": "assets/work/furtens/BO9JLqN0pRz7O4EWMDnNL8pEAGA.png"
+       }
+      ]
      },
      {
       "h3": "Designing challenge sprint"
@@ -251,22 +248,18 @@
       "p": "As Furtens positions itself as a luxury pet brand, our focus is on capturing the high-end market of pet owners who demand nothing but the best for their furry companions. Through extensive research, we identified two primary personas that embody Furtens’ target demographic:"
      },
      {
-      "img": "assets/work/furtens/r7U2rXIENLdYpUWoshRbFbF80U.png"
-     },
-     {
-      "h3": "Luxury Lovers"
-     },
-     {
-      "p": "These are pet parents who view their pets as family and are willing to invest in premium products and services to ensure their comfort and well-being. They prioritize quality and exclusivity."
-     },
-     {
-      "img": "assets/work/furtens/pg0xmV0VLxepHaBFHBRIlbmveQ.png"
-     },
-     {
-      "h3": "Elite Care Enthusiasts"
-     },
-     {
-      "p": "These individuals seek expert, personalized services for grooming, training, and health. They value convenience and prefer Furtens’ all-in-one, tailored solutions that ensure consistent, high-quality care for their pets."
+      "people": [
+       {
+        "img": "assets/work/furtens/r7U2rXIENLdYpUWoshRbFbF80U.png",
+        "h": "Luxury Lovers",
+        "p": "These are pet parents who view their pets as family and are willing to invest in premium products and services to ensure their comfort and well-being. They prioritize quality and exclusivity."
+       },
+       {
+        "img": "assets/work/furtens/pg0xmV0VLxepHaBFHBRIlbmveQ.png",
+        "h": "Elite Care Enthusiasts",
+        "p": "These individuals seek expert, personalized services for grooming, training, and health. They value convenience and prefer Furtens’ all-in-one, tailored solutions that ensure consistent, high-quality care for their pets."
+       }
+      ]
      },
      {
       "h3": "Design Sprint Highlights"
@@ -326,40 +319,23 @@
       "h3": "Impact"
      },
      {
-      "h3": "Completion rate for first-time users"
-     },
-     {
       "stats": [
        [
         "75%",
-        "▲"
-       ]
-      ]
-     },
-     {
-      "h3": "Retention rate for users in the first two weeks"
-     },
-     {
-      "stats": [
+        "Completion rate for first-time users"
+       ],
        [
         "35%",
-        "▲"
-       ]
-      ]
-     },
-     {
-      "h3": "Streamlined navigation, making tasks faster by"
-     },
-     {
-      "stats": [
+        "Retention rate for users in the first two weeks"
+       ],
        [
         "60%",
-        "▲"
+        "Streamlined navigation, making tasks faster by"
        ]
       ]
      },
      {
-      "h3": "Furtens fresh look!"
+      "h2": "Furtens fresh look!"
      },
      {
       "h3": "Easy-to-use homepage"
@@ -368,7 +344,8 @@
       "p": "The Furtens homepage is designed for smooth navigation, making it simple for users to find services and products quickly."
      },
      {
-      "img": "assets/work/furtens/cEm9lSSLxu9WKpWQ1oQtMynKWk.png"
+      "img": "assets/work/furtens/cEm9lSSLxu9WKpWQ1oQtMynKWk.png",
+      "tall": true
      },
      {
       "h3": "Browse categories your way"
@@ -377,16 +354,15 @@
       "p": "The categories page offers both card and list layouts, allowing users to explore sub-categories and products effortlessly. Choose the view that suits your style for a seamless browsing experience."
      },
      {
-      "img": "assets/work/furtens/RqkrCP3nskPEeVYDrNuLHrhETk.png"
+      "img": "assets/work/furtens/RqkrCP3nskPEeVYDrNuLHrhETk.png",
+      "tall": true
      },
      {
-      "img": "assets/work/furtens/EOnm100UEBVfoEfC3jQmELXcic.png"
+      "img": "assets/work/furtens/EOnm100UEBVfoEfC3jQmELXcic.png",
+      "tall": true
      },
      {
-      "h3": "Explore product"
-     },
-     {
-      "h3": "details"
+      "h3": "Explore product details"
      },
      {
       "p": "Provides in-depth information, including images, descriptions, and user reviews."
@@ -401,7 +377,8 @@
       "p": "The returns and exchanges page simplifies the process, guiding users through steps to return or exchange products."
      },
      {
-      "img": "assets/work/furtens/2guUlxpzF81OQwpwGfYwFrHI22Y.png"
+      "img": "assets/work/furtens/2guUlxpzF81OQwpwGfYwFrHI22Y.png",
+      "tall": true
      },
      {
       "h3": "Easy exchange"
@@ -410,16 +387,18 @@
       "p": "Clear instructions and options help ensure a smooth experience for customers."
      },
      {
-      "img": "assets/work/furtens/QEwm1zbYvFPSZdpAiCbk73yHw.png"
+      "img": "assets/work/furtens/QEwm1zbYvFPSZdpAiCbk73yHw.png",
+      "tall": true
      },
      {
-      "h3": "Mobile"
+      "h2": "Mobile"
      },
      {
       "h3": "Mobile homepage design"
      },
      {
-      "img": "assets/work/furtens/Y2VXkTJNWxloUlGvmABSTWCQPJU.png"
+      "img": "assets/work/furtens/Y2VXkTJNWxloUlGvmABSTWCQPJU.png",
+      "tall": true
      },
      {
       "h3": "Product page"
@@ -428,31 +407,8 @@
       "p": "The product page displays items in multiple colors, highlighting the best-selling color for easy selection. This approach helps users quickly identify popular choices while enjoying a seamless browsing experience."
      },
      {
-      "h3": "Color"
-     },
-     {
-      "h3": "Bestseller"
-     },
-     {
-      "h3": "Size"
-     },
-     {
-      "h3": "L"
-     },
-     {
-      "h3": "XL"
-     },
-     {
-      "h3": "XS"
-     },
-     {
-      "h3": "Quantity"
-     },
-     {
-      "h3": "- 1 +"
-     },
-     {
-      "img": "assets/work/furtens/7ojG2Bu05Tmf1vsxl6j4Vf39OFA.png"
+      "img": "assets/work/furtens/7ojG2Bu05Tmf1vsxl6j4Vf39OFA.png",
+      "tall": true
      },
      {
       "h3": "Wishlist with customizable categories"
@@ -464,7 +420,8 @@
       "p": "Users can also add sticky notes for personal reminders and share specific categories with friends, enhancing collaboration and inspiration."
      },
      {
-      "img": "assets/work/furtens/3cqRBHfW6Mk0RY3Tf9UwgY0rftE.png"
+      "img": "assets/work/furtens/3cqRBHfW6Mk0RY3Tf9UwgY0rftE.png",
+      "tall": true
      },
      {
       "h3": "AI assistant for pet care"
@@ -507,7 +464,7 @@
      },
      {
       "label": "Industry",
-      "value": "Consumer electronics and home appliances"
+      "value": "Banking and financial services"
      },
      {
       "label": "Designed in",
@@ -525,7 +482,7 @@
       "p": "I was asked to redesign the user interface of a web app. The target was to improve usability in every aspect of the app, even if it meant changing some complexity of how it had been done."
      },
      {
-      "h3": "Goals"
+      "h2": "Goals"
      },
      {
       "h3": "😇 Why is this product or feature important?"
@@ -586,13 +543,13 @@
       "img": "assets/work/nimbus/fkjc9WObJWij5Gvaqh9BMqTYzM.webp"
      },
      {
-      "h3": "UI Before"
+      "cap": "UI Before"
      },
      {
       "img": "assets/work/nimbus/kjFkwCkxotPLb598Tvg4YnyrIOI.webp"
      },
      {
-      "h3": "UI After"
+      "cap": "UI After"
      },
      {
       "h3": "Problem statement"
@@ -697,13 +654,14 @@
       "p": "The dashboard redesign aims to improve the user interface, enhance usability, and align the system with regulatory requirements for more effective decision-making."
      },
      {
-      "img": "assets/work/nimbus/NrEEwvXFchhmicWuWY5I7Syg.png"
+      "img": "assets/work/nimbus/NrEEwvXFchhmicWuWY5I7Syg.png",
+      "tall": true
      },
      {
       "p": "In the dashboard redesign, we prioritized user accessibility and data visualization. By adding an overview of projects and uploaded datasets, users can easily track progress. Completed projects are now prominently displayed at the top for quick reference. Additionally, users can choose to view detailed projects in either grid or card format, allowing for a personalized experience. The inclusion of filters, such as data validation and monitoring, enhances user efficiency in managing and analyzing data."
      },
      {
-      "h3": "Data ingestion"
+      "h2": "Data ingestion"
      },
      {
       "h3": "USER SCENARIO"
@@ -781,7 +739,8 @@
       "p": "On the same page, we added a toggle at the bottom, allowing users to switch between table and graphical views. This feature provides a simple way to choose their preferred representation for a more customized and user-friendly experience."
      },
      {
-      "img": "assets/work/nimbus/Lo5eC9rGCUYq8fwbcMngk1OEldQ.png"
+      "img": "assets/work/nimbus/Lo5eC9rGCUYq8fwbcMngk1OEldQ.png",
+      "tall": true
      },
      {
       "h3": "SOLUTION"
@@ -823,7 +782,8 @@
       "img": "assets/work/nimbus/0CABJKtRjQBHPtB2CRvG3ofZXKg.png"
      },
      {
-      "img": "assets/work/nimbus/IzE5b8g3tRS2Nc6suQofeHVALg.png"
+      "img": "assets/work/nimbus/IzE5b8g3tRS2Nc6suQofeHVALg.png",
+      "tall": true
      },
      {
       "p": "In the custom functions, users have the option to choose between dark mode or light mode for the application's visual appearance. This flexibility allows users to personalize their experience based on their preferences for either a darker or lighter interface."
@@ -862,7 +822,7 @@
       "img": "assets/work/nimbus/PQXHrlJ8F9TgiS2gBh9z3APUus.png"
      },
      {
-      "h3": "Results achieved through UX improvements for Nimbus:"
+      "h2": "Results achieved through UX improvements for Nimbus:"
      },
      {
       "h3": "User Engagement Increase:"
@@ -947,7 +907,7 @@
       "p": "Scope was to create an application that eases the process of automation for strategy department project planning and tracking and create a business plan idea submission and register project through this web application"
      },
      {
-      "h3": "Goals"
+      "h2": "Goals"
      },
      {
       "h3": "😇 Why is this product or feature important?"
@@ -1032,7 +992,8 @@
       "img": "assets/work/haier/xgi8c6BbO7ZrXBKbUYCbUYs2E.webp"
      },
      {
-      "img": "assets/work/haier/nXzbKumRsKWEHuzFbx5tFLNbWX4.webp"
+      "img": "assets/work/haier/nXzbKumRsKWEHuzFbx5tFLNbWX4.webp",
+      "tall": true
      },
      {
       "img": "assets/work/haier/wtUqgm0D1UnBAVOUHJkY0wPG5s.webp"
@@ -1041,7 +1002,7 @@
       "img": "assets/work/haier/EGhAfAMp3a8EO5d2a7yMMNGZD3I.gif"
      },
      {
-      "h3": "Results achieved through the web application development project:"
+      "h2": "Results achieved through the web application development project:"
      },
      {
       "h3": "Project Efficiency:"
